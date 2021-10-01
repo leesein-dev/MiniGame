@@ -54,6 +54,7 @@
     #count-area {
       margin-bottom: 20px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
 
@@ -100,55 +101,141 @@
 
     #result-area {
       height: 320px;
+      text-align: center;
+      position: relative;
 
-      #outline-shadow {
+      #inner-item {
+        position: absolute;
         width: 100%;
-        height: 100%;
-        background-color: transparent;
-        border-radius: 20px;
-        box-shadow: 0 0 10px #5015CA;
+        z-index: 999;
+
+        & > div:first-child {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          line-height: 150px;
+
+          #select-box-background {
+            background-image: url('../../image/rock-scissor-paper/yellow.svg');
+            background-size: cover;
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+
+            img {
+              vertical-align: middle;
+            }
+          }
+
+          p {
+            margin: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 26px;
+            text-align: center;
+            text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
+            vertical-align: middle;
+          }
+        }
+
+        & > div:nth-child(2) {
+          margin-bottom: 10px;
+
+          span {
+            color: white;
+            margin-right: 10px;
+          }
+
+          input {
+            border: 2px solid #6640E5;
+            border-radius: 8px;
+            height: 30px;
+            width: 38px;
+            background-color: #5015CA;
+            color: white;
+            padding: 0 10px;
+          }
+
+        }
+
+        & > div:last-child {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+
+          div {
+            width: 80%;
+            background-color: white;
+            height: auto;
+            padding: 5px 10px;
+            border-radius: 10px;
+            box-shadow: 0 6px 1px #E0D6F5;
+
+            & > p:first-child {
+              color: #5820CC;
+              font-weight: bold;
+            }
+
+            & > p:last-child {
+              font-size: 14px;
+              color: #5C5A5E;
+            }
+          }
+        }
       }
 
-      #inner-shadow {
-        width: 100%;
-        height: 96%;
-        border: 6px solid #5C19EB;
-        background-color: transparent;
-        border-radius: 20px;
-        box-shadow: inset 0 0 10px #5015CA;
-      }
+      #box {
 
-      #select-box-background {
-        background-image: url('../../image/rock-scissor-paper/yellow.svg');
-        background-size: cover;
-        width: 150px;
-        height: 150px;
-        line-height: 150px;
-        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 320px;
+        align-items: center;
 
-        img {
-          vertical-align: middle;
+        #outline-shadow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-color: transparent;
+          border-radius: 20px;
+          box-shadow: 0 0 10px #5015CA;
+        }
+
+        #inner-shadow {
+          width: 100%;
+          height: 96%;
+          border: 6px solid #5C19EB;
+          background-color: transparent;
+          border-radius: 20px;
+          box-shadow: inset 0 0 10px #5015CA;
         }
       }
     }
 
     #button-area {
 
-      #button-box-background {
-        background-image: url('../../image/rock-scissor-paper/purple.svg');
-        background-size: cover;
-        width: 130px;
-        height: 130px;
-        line-height: 130px;
-        text-align: center;
-        opacity: 60%;
+      & > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
-        &:hover {
-          opacity: 100%;
-        }
+        #button-box-background {
+          background-image: url('../../image/rock-scissor-paper/purple.svg');
+          background-size: cover;
+          width: 130px;
+          height: 130px;
+          line-height: 130px;
+          text-align: center;
+          opacity: 60%;
 
-        img {
-          vertical-align: middle;
+          &:hover {
+            opacity: 100%;
+          }
+
+          img {
+            vertical-align: middle;
+          }
         }
       }
     }
