@@ -115,13 +115,17 @@
           justify-content: center;
           line-height: 150px;
 
-          #select-box-background {
+          .select-box-background {
             background-image: url('../../image/rock-scissor-paper/yellow.svg');
             background-size: cover;
             width: 150px;
             height: 150px;
             line-height: 150px;
             text-align: center;
+
+            &.active {
+              background-image: url('../../image/rock-scissor-paper/yellow-win.svg');
+            }
 
             img {
               vertical-align: middle;
@@ -142,9 +146,16 @@
         & > div:nth-child(2) {
           margin-bottom: 10px;
 
-          span {
+          span{
             color: white;
-            margin-right: 10px;
+
+            &:first-child {
+              margin-right: 10px;
+            }
+
+            &:last-child {
+              margin-left: 10px;
+            }
           }
 
           input {
