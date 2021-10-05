@@ -31,6 +31,42 @@ function RandomDiceGame() {
     let [myDiceRecord, setMyDiceRecord] = useState('');
     let [otherDiceRecord, setOtherDiceRecord] = useState('');
 
+    const DICE_GAME_START = () => {
+
+        const MY_RANDOM_DICE = Math.floor(Math.random() * (6 - 0)) + 0;
+        let OTHER_RANDOM_DICE = Math.floor(Math.random() * (6 - 0)) + 0;
+        for (;MY_RANDOM_DICE === OTHER_RANDOM_DICE;) {
+            OTHER_RANDOM_DICE = Math.floor(Math.random() * (6 - 0)) + 0;
+        }
+        setMyDice(myDiceList[MY_RANDOM_DICE]);
+        setOtherDice(otherDiceList[OTHER_RANDOM_DICE]);
+
+        let myScore = myDiceScore;
+        let otherScore = otherDiceScore;
+        MY_RANDOM_DICE > OTHER_RANDOM_DICE
+            ? myScore += 1
+            : otherScore += 1
+        setMyDiceScore(myScore);
+        setOtherDiceScore(otherScore);
+
+        let myRecord = myDiceRecord;
+        let otherRecord = otherDiceRecord;
+        myRecord += `${MY_RANDOM_DICE + 1}, `;
+        otherRecord += `${OTHER_RANDOM_DICE + 1}, `;
+        setMyDiceRecord(myRecord);
+        setOtherDiceRecord(otherRecord);
+
+    }
+
+    const DICE_GAME_RESET = () => {
+        setMyDice(myDiceList[0]);
+        setOtherDice(otherDiceList[0]);
+        setMyDiceScore(0);
+        setOtherDiceScore(0);
+        setMyDiceRecord('');
+        setOtherDiceRecord('');
+    }
+
     return(
         <div id={"dice-background"}>
             <div id={"title-area"}>
@@ -38,8 +74,8 @@ function RandomDiceGame() {
                 <p>주사위 게임</p>
             </div>
             <div id={"play-area"}>
-                <button>던지기</button>
-                <button>처음부터</button>
+                <button onClick={()=>{DICE_GAME_START()}}>던지기</button>
+                <button onClick={()=>{DICE_GAME_RESET()}}>처음부터</button>
             </div>
             <div id={"result-area"}>
                 <DiceResult
